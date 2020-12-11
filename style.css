@@ -106,6 +106,9 @@ body{
     background-color: hsl(39, 89%, 49%);
     box-shadow: inset 0px -8px hsl(40, 84%, 37%);
 }
+#paper:hover, #rock:hover, #scissor:hover{
+    cursor: pointer;
+}
 
 .attribution{
     display: flex;
@@ -117,6 +120,21 @@ body{
     color: hsl(228, 45%, 44%); 
 }
 
-#paper:hover, #rock:hover, #scissor:hover{
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    left: 40%;
+    padding: 1rem;
+    width: 6rem;
+    height: 2rem;
+
+    background-color: transparent;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 10px;
+    color: #ffffff;
+
     cursor: pointer;
 }
