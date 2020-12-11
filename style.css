@@ -57,6 +57,12 @@ body{
     height: 60vh;
 }
 
+.game .triangle{
+    z-index: -1;
+    position: absolute;
+    transform: scale(.8);
+}
+
 .game .circle{
     position: relative;
     display: flex;
@@ -65,7 +71,6 @@ body{
     
     width: 8rem;
     height: 8rem;
-    margin: 2rem;
     border-radius: 50%;
     background-color: #ffffff;
     
@@ -81,11 +86,17 @@ body{
     border-radius: 50%;
 }
 
+#paper, #scissor{
+    bottom: 90px;
+}
 #paper::before{
     background-color:hsl(230, 89%, 62%);
     box-shadow: inset 0px -8px hsl(230, 89%, 53%)
 }
 
+#rock{
+    top: 90px;
+}
 #rock::before{
     background-color: hsl(349, 71%, 52%);
     box-shadow: inset 0px -8px hsl(349, 84%, 39%);
@@ -104,4 +115,8 @@ body{
 }
 .attribution a { 
     color: hsl(228, 45%, 44%); 
+}
+
+#paper:hover, #rock:hover, #scissor:hover{
+    cursor: pointer;
 }
