@@ -28,12 +28,8 @@ body{
     border: 2px solid hsl(217, 16%, 45%);
     border-radius: 15px;
 }
-.tittleScore ul{
-    margin: 15px 0px 0px 25px;
-    font-size: 2.3rem;
-    color: #ffffff;
-    line-height: 1.8rem;
-    list-style: none;
+.tittleScore img{
+    padding: 1.2rem;
 }
 .tittleScore .score{
     display: flex;
@@ -51,6 +47,53 @@ body{
 .tittleScore .score p{
     font-size: 3rem;
     color: hsl(229, 25%, 31%);
+}
+
+.game{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60vh;
+}
+
+.game .circle{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 8rem;
+    height: 8rem;
+    margin: 2rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+    
+    box-shadow: inset 0px 8px hsl(217, 16%, 77%); 
+}
+.game .circle::before{
+    position: absolute;
+    content: '';
+    z-index: -1;
+
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+
+#paper::before{
+    background-color:hsl(230, 89%, 62%);
+    box-shadow: inset 0px -8px hsl(230, 89%, 53%)
+}
+
+#rock::before{
+    background-color: hsl(349, 71%, 52%);
+    box-shadow: inset 0px -8px hsl(349, 84%, 39%);
+}
+
+#scissor::before{
+    background-color: hsl(39, 89%, 49%);
+    box-shadow: inset 0px -8px hsl(40, 84%, 37%);
 }
 
 .attribution{
