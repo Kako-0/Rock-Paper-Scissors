@@ -120,7 +120,7 @@ body{
     color: hsl(228, 45%, 44%); 
 }
 
-#btnRules{
+.btnRules{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,7 +141,7 @@ body{
 
 .containerRules{
     position: fixed;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -187,4 +187,14 @@ body{
 .imgRules{
     width: 70%;
     height: 70%;
+}
+
+.show{
+    display: flex;
+    animation: transp 0.5s;
+}
+
+@keyframes transp{
+    0%{ opacity: 0;},
+    100%{ opacity: 1;};
 }
