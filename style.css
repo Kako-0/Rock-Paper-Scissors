@@ -120,7 +120,7 @@ body{
     color: hsl(228, 45%, 44%); 
 }
 
-button{
+#btnRules{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,4 +137,54 @@ button{
     color: #ffffff;
 
     cursor: pointer;
+}
+
+.containerRules{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6) ;
+    
+    z-index: 10;
+}
+.boxRules{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 25%;
+    height: 50%;
+    background-color: #ffffff;
+    border-radius: 5px;
+
+}
+
+.cab{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 2rem;
+
+    width: 100%;
+    height: 30px;
+}
+.cab button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.cab h1{
+    color: hsl(229, 25%, 31%);
+}
+
+.imgRules{
+    width: 70%;
+    height: 70%;
 }
