@@ -191,10 +191,10 @@ body{
 
 .show{
     display: flex;
-    animation: transp 0.5s;
+    animation: appear 0.5s;
 }
 
-@keyframes transp{
+@keyframes appear{
     0%{ opacity: 0;},
     100%{ opacity: 1;};
 }
