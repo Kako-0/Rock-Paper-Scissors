@@ -20,17 +20,17 @@
     </div>
   </div>
 
-  <div class="game" id="game">
-    <img class="triangle" src="./images/bg-triangle.svg" alt="bg-triangle">
-    <div class="circle paper" id="paper"><img src="./images/icon-paper.svg" alt="Paper"></div>
-    <div class="circle rock" id="rock"><img src="./images/icon-rock.svg" alt="Rock"></div>
-    <div class="circle scissor" id="scissor"><img src="./images/icon-scissors.svg" alt="Scissor"></div>
+  <div class="game" onclick="getPick()" id="game">
+    <img class="triangle" id="triangle" src="./images/bg-triangle.svg" alt="bg-triangle">
+    <button class="circle paper btnClean" id="paper"><img id="imgPaper" src="./images/icon-paper.svg" alt="Paper"></button>
+    <button class="circle rock btnClean" id="rock"><img id="imgRock" src="./images/icon-rock.svg" alt="Rock"></button>
+    <button class="circle scissor btnClean" id="scissor"><img id="imgScissor" src="./images/icon-scissors.svg" alt="Scissor"></button>
   </div>
 
   <div class="containerPick" id="contPick">
-    <div onclick="showed()" class="circle picked paper" id="picked">
+    <div class="circle picked" id="picked">
       <p>YOU PICKED</p>
-      <img src="./images/icon-scissors.svg" alt="Scissor">
+      <img id="imgPicked" src="./images/icon-scissors.svg" alt="Scissor">
     </div>
     <div class="winLose show" id="contWinLose">
       <p id="result">YOU LOSE</p>
@@ -47,6 +47,7 @@
     Coded by <a href="https://github.com/Kako-0">Kayro França</a>.
   </div>
   
+  <!--Button of the rules-->
   <button onclick="popup()" class="btnRules">Rules</button>
 
   <!--Modal-->

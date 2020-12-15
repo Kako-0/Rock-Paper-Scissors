@@ -50,7 +50,7 @@ body{
 }
 
 .game{
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -195,8 +195,11 @@ body{
 }
 
 .show{
-    display: flex;
+    display: flex !important;
     animation: appear 0.5s;
+}
+.desappear{
+    display: none;
 }
 
 @keyframes appear{
@@ -204,11 +207,8 @@ body{
     100%{ opacity: 1;};
 }
 
-.game{
-    display: none;
-}
 .containerPick{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     width: 40rem;
