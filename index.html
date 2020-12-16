@@ -20,11 +20,11 @@
     </div>
   </div>
 
-  <div class="game" onclick="getPick()" id="game">
-    <img class="triangle" id="triangle" src="./images/bg-triangle.svg" alt="bg-triangle">
-    <button class="circle paper btnClean" id="paper"><img id="imgPaper" src="./images/icon-paper.svg" alt="Paper"></button>
-    <button class="circle rock btnClean" id="rock"><img id="imgRock" src="./images/icon-rock.svg" alt="Rock"></button>
-    <button class="circle scissor btnClean" id="scissor"><img id="imgScissor" src="./images/icon-scissors.svg" alt="Scissor"></button>
+  <div class="game" id="game">
+    <img class="triangle" src="./images/bg-triangle.svg" alt="bg-triangle">
+    <div onclick="getPick(this)" class="circle paper" id="paper"><img id="imgPaper" src="./images/icon-paper.svg" alt="Paper"></div>
+    <div onclick="getPick(this)" class="circle rock" id="rock"><img id="imgRock" src="./images/icon-rock.svg" alt="Rock"></div>
+    <div onclick="getPick(this)" class="circle scissors" id="scissors"><img id="imgScissor" src="./images/icon-scissors.svg" alt="Scissor"></div>
   </div>
 
   <div class="containerPick" id="contPick">

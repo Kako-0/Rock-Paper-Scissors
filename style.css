@@ -87,7 +87,7 @@ body{
     border-radius: 50%;
 }
 
-.paper, .scissor{
+.paper, .scissors{
     bottom: 90px;
 }
 .paper::before{
@@ -103,11 +103,11 @@ body{
     box-shadow: inset 0px -8px hsl(349, 84%, 39%);
 }
 
-.scissor::before{
+.scissors::before{
     background-color: hsl(39, 89%, 49%);
     box-shadow: inset 0px -8px hsl(40, 84%, 37%);
 }
-.paper:hover, .rock:hover, .scissor:hover{
+.paper:hover, .rock:hover, .scissors:hover{
     cursor: pointer;
 }
 
@@ -225,6 +225,7 @@ body{
     bottom: initial;
     top: initial;
     margin: 2rem;
+    cursor: initial !important;
 }
 .picked p{
     position: absolute;

@@ -16,7 +16,7 @@ function popup() {
         }
     });
 }
-/*
+
 //show the container of result
 async function showed() {
     const algo = document.getElementById("contWinLose");
@@ -69,69 +69,29 @@ async function beats(id) {
     }
 }
 
-function getPick() {
-    const picked = document.getElementById("game");
-    
+async function getPick(obj) {
+    const pick = obj.id;
+    console.log(pick);
+    beats(pick);
 
-    picked.addEventListener('click', (event) => {
-        if (event.target.id != "game") {
-            let pick = event.target.id;
-            if (pick == 'imgPaper') {
-                pick = 'paper';
-            }
-            if (pick == 'imgRock') {
-                pick = 'rock';
-            }
-            if (pick == 'imgScissor') {
-                pick = 'scissor';
-            }
-            alert(pick);
-            //beats(pick);
-        }
-    });
-    //console.log(pick);
+    const remove = document.getElementById("game").classList.add('desappear');
     
-    //picked.classList.add('desappear');
-    
-    //await showPick(pick);
+    await showPick(pick);
 }
 
 async function showPick(idPick) {
     const container = document.getElementById("contPick");
 
     const picked = container.firstElementChild;
+    const imgPicked = picked.lastElementChild;
     picked.classList.add(`${idPick}`);
+    imgPicked.setAttribute('src', `./images/icon-${idPick}.svg`);
 
     container.classList.add('show');
 
     container.addEventListener('click', (event) => {
         if (event.target.id == 'playAgain'){
             showed();
-        }
-    });
-}
-*/
-
-function getPick() {
-    const picked = document.getElementById("game");
-    
-    picked.addEventListener('click', (event) => {
-        if (event.target.id != "game" && event.target.id != "triangle") {
-            let pick = event.target.id;
-
-            if (pick == 'imgPaper') {
-                pick = 'paper';
-            }else{
-                if (pick == 'imgRock') {
-                    pick = 'rock';
-                }else{
-                    if (pick == 'imgScissor'){
-                        pick = 'scissor';
-                    }
-                }
-            }
-            
-            console.log(pick);
         }
     });
 }
