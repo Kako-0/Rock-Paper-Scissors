@@ -18,7 +18,7 @@ function popup() {
 }
 
 //show the container of result
-async function showed() {
+async function reset() {
     const algo = document.getElementById("contWinLose");
     algo.classList.add('show');
 
@@ -30,10 +30,14 @@ async function showed() {
                 200);
             setTimeout(function(){ 
                 algo.classList.remove('show');
-                const xesque = document.getElementById("contPick").remove('show');
-                xesque.classList.classList.add('desappear');
+                const xesque = document.getElementById("contPick");
+                xesque.classList.remove('show');
+                xesque.classList.add('desappear');
+
                 const dele = document.getElementById("game");
+                dele.classList.remove('desappear'); 
                 dele.classList.add('show');
+
             }, 200);
         }
     });
@@ -43,6 +47,8 @@ async function showed() {
 async function beats(id) {
     const result = document.getElementById("result");
     const house = document.getElementById("house");
+
+    const housePick = house.lastElementChild;
 
     if (id == "rock" && house == "scissor") {
         result.innerText.replace("LOSE", 'WON');
@@ -74,7 +80,8 @@ async function getPick(obj) {
     console.log(pick);
     beats(pick);
 
-    const remove = document.getElementById("game").classList.add('desappear');
+    const remove = document.getElementById("game");
+    remove.classList.add('desappear');
     
     await showPick(pick);
 }
@@ -82,16 +89,23 @@ async function getPick(obj) {
 async function showPick(idPick) {
     const container = document.getElementById("contPick");
 
+    //Color of the rock, paper or scissor chosen for player
     const picked = container.firstElementChild;
+    //Respective image;
     const imgPicked = picked.lastElementChild;
     picked.classList.add(`${idPick}`);
     imgPicked.setAttribute('src', `./images/icon-${idPick}.svg`);
 
     container.classList.add('show');
 
+    setTimeout(function(){ 
+        const show = document.getElementById("contWinLose");
+        show.classList.add("show");
+    }, 2000);
+
     container.addEventListener('click', (event) => {
         if (event.target.id == 'playAgain'){
-            showed();
+            reset();
         }
     });
 }
