@@ -21,6 +21,10 @@ function popup() {
 async function reset() {
     const reset = document.getElementById("contPick");
     const desappearWinlose = document.getElementById("contWinLose");
+    const desappearHouse = reset.lastElementChild.
+        classList.add("darkmode");
+    const desappearImgHouse = reset.lastElementChild.
+        lastElementChild.setAttribute('src', `./images/icon-.svg`);
     desappearWinlose.classList.remove("show");
 
     reset.classList.remove('show');
@@ -43,7 +47,6 @@ async function beats(id) {
     const result = document.getElementById("result");
     const house = document.getElementById("house");
 
-    const housePick = house.lastElementChild;
 
     if (id == "rock" && house == "scissor") {
         result.innerText.replace("LOSE", 'WON');
@@ -80,6 +83,7 @@ async function getPick(obj) {
     remove.classList.add('desappear');
     
     await showPick(pick);
+
 }
 
 async function showPick(idPick) {
@@ -93,16 +97,52 @@ async function showPick(idPick) {
     imgPicked.setAttribute('src', `./images/icon-${idPick}.svg`);
 
     container.classList.add('show');
+    let pickHouse;
+    let idHouse;
+
+    setTimeout(() => {
+        idHouse = choose();
+        pickHouse = showPickHouse(idHouse);
+
+    }, 1000);
 
     setTimeout(function(){ 
         const show = document.getElementById("contWinLose");
         show.classList.add("show");
-    }, 1000);
+    }, 2000);
 
     container.addEventListener('click', (event) => {
         if (event.target.id == 'playAgain'){
             picked.classList.remove(`${idPick}`);
+            pickHouse.classList.remove(`${idHouse}`);
             reset();
         }
     });
 }
+
+function showPickHouse(idPick) {
+    const container = document.getElementById("contPick");
+
+    //Color of the rock, paper or scissor chosen for player
+    const picked = container.lastElementChild;
+    //Respective image;
+    const imgPicked = picked.lastElementChild;
+
+    picked.classList.remove("darkmode");
+
+    picked.classList.add(`${idPick}`);
+    imgPicked.setAttribute('src', `./images/icon-${idPick}.svg`);
+
+    return picked;
+}
+
+function choose() {
+    options = ["rock", "paper", "scissors"];
+
+    const chosen = Math.floor(Math.random() * (3 - 0)) + 0;
+
+    return options[chosen];
+}
+
+  
+  
