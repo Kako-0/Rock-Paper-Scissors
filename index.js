@@ -43,50 +43,52 @@ async function reset() {
 }
 
 
-async function beats(id) {
+function beats(id, house) {
     const result = document.getElementById("result");
-    const house = document.getElementById("house");
+    const score = document.getElementById("point");
+    let scoreInt = parseInt(score.innerHTML);
 
-
-    if (id == "rock" && house == "scissor") {
-        result.innerText.replace("LOSE", 'WON');
-    } else {
-        if (id == "rock" && house == "rock") {
-            house.innerText.replace("LOSE", 'TIED');
+    result.innerHTML = "YOU TIED";
+    
+    if ((id == 'paper' && house == 'rock') || (id == 'rock' && house == 'scissors') || (id == 'scissors' && house == 'paper')) {
+        result.innerHTML = "YOU WON";
+        if (scoreInt >= 0) {
+            scoreInt += 1;
+            setTimeout(() => {
+                score.innerHTML = `${scoreInt}`; 
+            }, 1500);
         }
-    }
-
-    if (id == "paper" && house == "rock") {
-        result.innerText.replace("LOSE", 'WON');
-    } else {
-        if (id == "paper" && house == "paper") {
-            house.innerText.replace("LOSE", 'TIED');
-        }
-    }
-
-    if (id == "scissor" && house == "paper") {
-        result.innerText.replace("LOSE", 'WON');
-    } else {
-        if (id == "scissor" && house == "scissor") {
-            house.innerText.replace("LOSE", 'TIED');
+        
+    }else{
+        if ((id == 'paper' && house == 'scissors') || (id == 'rock' && house == 'paper') || (id == 'scissors' && house == 'rock')) {
+            result.innerHTML = "YOU LOSE";
+            if (scoreInt > 0) {
+                scoreInt -= 1;
+                setTimeout(() => {
+                    score.innerHTML = `${scoreInt}`; 
+                }, 1500);
+            }
         }
     }
 }
 
 async function getPick(obj) {
     const pick = obj.id;
-    console.log(pick);
-    beats(pick);
+    const idHouse = choose();
+    console.log(`idPick: ${pick}`);
+    console.log(`idHouse: ${idHouse}`);
+
+    beats(pick, idHouse);
 
     const remove = document.getElementById("game");
     remove.classList.remove('show');
     remove.classList.add('desappear');
     
-    await showPick(pick);
+    await showPick(pick, idHouse);
 
 }
 
-async function showPick(idPick) {
+async function showPick(idPick, idHouse) {
     const container = document.getElementById("contPick");
 
     //Color of the rock, paper or scissor chosen for player
@@ -98,12 +100,9 @@ async function showPick(idPick) {
 
     container.classList.add('show');
     let pickHouse;
-    let idHouse;
 
     setTimeout(() => {
-        idHouse = choose();
         pickHouse = showPickHouse(idHouse);
-
     }, 1000);
 
     setTimeout(function(){ 
