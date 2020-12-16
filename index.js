@@ -19,28 +19,23 @@ function popup() {
 
 //show the container of result
 async function reset() {
-    const algo = document.getElementById("contWinLose");
-    algo.classList.add('show');
+    const reset = document.getElementById("contPick");
+    const desappearWinlose = document.getElementById("contWinLose");
+    desappearWinlose.classList.remove("show");
 
-    algo.addEventListener('click', (event) => {
-        if (event.target.id == 'playAgain'){
-            algo.animate({
-                opacity:[ 1, 0 ],
-                offset: [ 0, 1 ]},
-                200);
-            setTimeout(function(){ 
-                algo.classList.remove('show');
-                const xesque = document.getElementById("contPick");
-                xesque.classList.remove('show');
-                xesque.classList.add('desappear');
+    reset.classList.remove('show');
+    reset.classList.add('desappear');
+    
+    reset.animate({
+        opacity:[ 1, 0 ],
+        offset: [ 0, 1 ]},
+        200
+    );
 
-                const dele = document.getElementById("game");
-                dele.classList.remove('desappear'); 
-                dele.classList.add('show');
+    const initialScreen = document.getElementById("game");
+    initialScreen.classList.remove("desappear");
+    initialScreen.classList.add("show");
 
-            }, 200);
-        }
-    });
 }
 
 
@@ -81,6 +76,7 @@ async function getPick(obj) {
     beats(pick);
 
     const remove = document.getElementById("game");
+    remove.classList.remove('show');
     remove.classList.add('desappear');
     
     await showPick(pick);
@@ -101,10 +97,11 @@ async function showPick(idPick) {
     setTimeout(function(){ 
         const show = document.getElementById("contWinLose");
         show.classList.add("show");
-    }, 2000);
+    }, 1000);
 
     container.addEventListener('click', (event) => {
         if (event.target.id == 'playAgain'){
+            picked.classList.remove(`${idPick}`);
             reset();
         }
     });
