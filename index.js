@@ -60,6 +60,7 @@ function beats(id, house) {
                 score.innerHTML = `${scoreInt}`; 
             }, 1500);
         }
+        return "picked";
         
     }else{
         if ((id == 'paper' && house == 'scissors') || (id == 'rock' && house == 'paper') || (id == 'scissors' && house == 'rock')) {
@@ -71,6 +72,7 @@ function beats(id, house) {
                     score.innerHTML = `${scoreInt}`; 
                 }, 1500);
             }
+            return "house";
         }
     }
 }
@@ -82,19 +84,19 @@ async function getPick(obj) {
     console.log(`idPick: ${pick}`);
     console.log(`idHouse: ${idHouse}`);
 
-    beats(pick, idHouse);
+    const result = beats(pick, idHouse);
     
     //It removes the div of step-1
     const remove = document.getElementById("game");
     remove.classList.remove('show');
     remove.classList.add('desappear');
     
-    await showPick(pick, idHouse);
+    await showPick(pick, idHouse, result);
 
 }
 
 //it shows the div of the step-2, step-3 and step-4
-async function showPick(idPick, idHouse) {
+async function showPick(idPick, idHouse, result) {
     const container = document.getElementById("contPick");
     const picked = container.firstElementChild;
     
@@ -106,6 +108,7 @@ async function showPick(idPick, idHouse) {
     //it shows the step-2
     container.classList.add('show');
     let pickHouse;
+    let highlight;
 
     //it shows the step-3
     setTimeout(() => {
@@ -115,6 +118,11 @@ async function showPick(idPick, idHouse) {
     //it shows the step-4
     setTimeout(() => { 
         const show = document.getElementById("contWinLose");
+        if (result != undefined) {
+            highlight = document.getElementById(`${result}`);
+            highlight.classList.add("highlight");
+        }
+        
         show.classList.add("show");
     }, 2000);
 
@@ -122,6 +130,7 @@ async function showPick(idPick, idHouse) {
         if (event.target.id == 'playAgain'){
             picked.classList.remove(`${idPick}`);
             pickHouse.classList.remove(`${idHouse}`);
+            highlight.classList.remove("highlight");
             reset();
         }
     });
