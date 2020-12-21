@@ -130,8 +130,10 @@ async function showPick(idPick, idHouse, result) {
         if (event.target.id == 'playAgain'){
             picked.classList.remove(`${idPick}`);
             pickHouse.classList.remove(`${idHouse}`);
-            highlight.classList.remove("highlight");
-            reset();
+            if (result != undefined) {
+                highlight.classList.remove("highlight");
+            }
+                reset();
         }
     });
 }
